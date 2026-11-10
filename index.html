@@ -1,1 +1,51 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=5"><meta name="theme-color" content="#f7f3ed"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="旅程"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><link rel="stylesheet" href="style.css"><title>旅程</title></head><body><header><div class="brand"><div><h1>旅程</h1><p>2026 · 日本</p></div><button id="progressBtn" class="ghost">进度</button></div><div id="dates" class="dates"></div></header><main><section id="tripView"></section><section id="shopView" hidden></section></main><nav><button class="nav on" data-view="trip"><span>◉</span>行程</button><button class="nav" data-view="shop"><span>◇</span>待买</button></nav><div id="viewer" class="viewer" aria-hidden="true"><button class="viewer-close" aria-label="关闭">×</button><div class="viewer-stage"><img id="viewerImg" alt="参考图片"></div><div id="viewerCount" class="viewer-count"></div></div><script src="data.js"></script><script src="app.js"></script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f5f3eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="日本旅记">
+  <meta name="description" content="2026 日本年假旅行 · 每日行程、圣地巡礼与心愿清单">
+  <title>日本旅记 · 2026 秋</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css?v=2026.11.final.1">
+</head>
+<body>
+  <a class="skip" href="#content">跳到行程内容</a>
+  <header class="masthead">
+    <a class="wordmark" href="./" aria-label="日本旅记首页"><span class="seal" aria-hidden="true">旅</span><span>日本旅记<small>AUTUMN, 2026</small></span></a>
+    <button class="icon-button" id="settingsButton" aria-label="打开旅行工具"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/><circle cx="9" cy="6" r="2" fill="currentColor"/><circle cx="15" cy="12" r="2" fill="currentColor"/><circle cx="9" cy="18" r="2" fill="currentColor"/></svg></button>
+  </header>
+  <main id="content" tabindex="-1">
+    <section class="trip-view" id="tripView" aria-label="每日行程">
+      <section class="hero">
+        <div class="hero-copy"><p class="eyebrow">NOV 20 — NOV 29 · 10 DAYS</p><h1>把喜欢的世界，<br>走成自己的风景<span>。</span></h1><p class="hero-sub">东京 · 横滨 · 大阪 · 京都 · 大津</p><div class="hero-foot"><span class="red-dot"></span>2026 日本年假旅行<span class="edition">最终行程</span></div></div>
+        <div class="postcard" aria-hidden="true"><svg viewBox="0 0 240 250"><rect width="240" height="250" fill="#e4e9df"/><circle cx="170" cy="65" r="32" fill="#c7664d"/><path d="M0 178 76 82 146 178Z" fill="#91a89d"/><path d="m51 113 25-31 24 30-17-5-9 8-10-5Z" fill="#f8f5e9"/><path d="M0 173c53-17 85 23 139 6s69-6 101 1v70H0" fill="#405d50"/><path d="M0 205c59-15 100 13 151 0s66-12 89-9v54H0" fill="#27473b"/><path d="M142 250c-18-47 48-55 18-74 35 21-22 47 10 74" fill="#b6c2b3"/><path d="M22 40h48M22 46h33" stroke="#f8f5e9" stroke-width="2"/></svg><span>日本の秋</span><small>A LITTLE JOURNEY, A LOT TO REMEMBER.</small></div>
+      </section>
+      <div class="trip-overview"><span>旅途进度 <strong id="totalProgress">0 / 86</strong></span><div class="progress-track"><div id="totalProgressBar"></div></div><span id="connectionStatus">进度自动保存</span></div>
+      <section class="day-planner"><div class="section-kicker"><span>01 / DAILY ITINERARY</span><span>一日一页，慢慢走</span></div><div class="dates" id="dates" role="group" aria-label="选择旅行日期"></div><div id="dayContent"></div></section>
+    </section>
+    <section id="shopView" aria-label="待买清单" hidden>
+      <div class="page-intro"><p class="eyebrow">02 / LITTLE TREASURES</p><h1>把心动带回家<span>。</span></h1><p>喜欢的游戏、公式书，还有旅行的小收获。</p></div>
+      <div class="shop-summary"><span>心愿清单</span><strong id="shopProgress">0 / 36</strong><span>已入手</span></div>
+      <label class="search-box"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><input id="shopSearch" type="search" placeholder="搜索商品、平台或预算" autocomplete="off" aria-label="搜索待买商品"></label>
+      <div class="shop-controls"><div class="filters" id="shopFilters" role="group" aria-label="商品分类"></div><label class="unfinished"><input type="checkbox" id="unboughtOnly">只看待买</label></div>
+      <div class="shop-grid" id="shopList"></div>
+    </section>
+    <footer class="page-footer"><span class="seal mini" aria-hidden="true">旅</span><p>愿每一段路，都有值得记住的风景。</p><small>2026.11.20 — 11.29 · JAPAN TRAVEL JOURNAL</small></footer>
+  </main>
+  <nav class="bottom-nav" aria-label="主要导航"><button class="nav-button active" data-view="trip" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2Zm6-2v16m6-14v16"/></svg><span>每日行程</span></button><button class="nav-button" data-view="shop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 7h14l2 14H3ZM8 8V6a4 4 0 0 1 8 0v2"/></svg><span>待买清单</span><small id="shopNavCount">36</small></button></nav>
+  <dialog id="viewer" class="viewer" aria-labelledby="viewerTitle"><div class="viewer-top"><div><h2 id="viewerTitle">参考图片</h2><p id="viewerCount"></p></div><button class="viewer-close icon-button" aria-label="关闭图片">×</button></div><div class="viewer-stage" id="viewerStage"><img id="viewerImg" alt=""></div><p class="viewer-error" id="viewerError" role="status"></p><div class="zoom-controls"><button id="prevImage" aria-label="上一张图片">←</button><button id="zoomOut" aria-label="缩小图片">−</button><button id="zoomReset" aria-label="还原图片大小">100%</button><button id="zoomIn" aria-label="放大图片">＋</button><button id="nextImage" aria-label="下一张图片">→</button></div><div class="viewer-actions"><a id="downloadImage" class="button light" download>下载原图</a><button id="shareImage" class="button" hidden>分享 / 存储图片</button></div><p class="viewer-tip">双指可缩放 · iPhone 可点“分享 / 存储图片”选择存储图像，也可长按图片保存</p></dialog>
+  <dialog id="settings" class="settings" aria-labelledby="settingsTitle"><div class="dialog-head"><div><p class="eyebrow">YOUR TRAVEL COMPANION</p><h2 id="settingsTitle">旅行工具</h2></div><button class="icon-button" id="closeSettings" aria-label="关闭旅行工具">×</button></div><div class="tool-section"><h3>进度随身带</h3><p>勾选保存在当前浏览器。换设备前可以导出备份，再在新设备导入。</p><div class="tool-buttons"><button class="button" id="exportState">导出进度备份</button><label class="button secondary" for="importState">导入备份</label><input id="importState" type="file" accept="application/json,.json" hidden></div><p id="storageStatus" role="status"></p></div><div class="tool-section"><h3>提前准备，安心出发</h3><p>下载行程和全部预览图后，可离线查看。原图在打开后缓存；首次下载原图仍需网络。</p><button class="button secondary" id="offlineButton">准备离线行程与图片</button><p id="offlineStatus" role="status"></p></div><div class="tool-section"><h3>放到 iPhone 主屏幕</h3><p>用 Safari 打开本站，点分享按钮，再选“添加到主屏幕”，就能像 App 一样使用。</p></div><p class="version">最终行程 · 2026.11.final.1</p></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+  <noscript><p class="noscript">请开启 JavaScript 查看互动行程。也可以<a href="data.json">打开完整行程数据</a>。</p></noscript>
+  <script src="data.js?v=2026.11.final.1"></script>
+  <script src="migration.js?v=2026.11.final.1"></script>
+  <script src="state.js?v=2026.11.final.1"></script>
+  <script src="app.js?v=2026.11.final.1"></script>
+</body>
+</html>

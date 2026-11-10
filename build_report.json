@@ -1,6 +1,6 @@
 {
-  "trip_cards": 109,
-  "shop_items": 14,
+  "source": "空白模板_V2(3)(2).xlsx",
+  "sourceSha256": "a114635738d04adac892a7e7df899fe704ad4f02778a0caf251f662334fdebdc",
   "dates": [
     "2026-11-20",
     "2026-11-21",
@@ -13,17 +13,29 @@
     "2026-11-28",
     "2026-11-29"
   ],
-  "unique_assets": 72,
-  "trip_image_refs": 93,
-  "branch_days": {
-    "2026-11-22": {
-      "A": "如果场贩在活动开始之前，活动结束后可以直接走",
-      "B": "如果活动结束后才有场贩，需要预留场贩排队时间"
-    },
-    "2026-11-24": {
-      "A": "天气好能见度高",
-      "B": "天气不好能见度低"
-    }
-  },
-  "files": 81
+  "itinerarySourceRows": 106,
+  "itineraryItems": 86,
+  "shoppingItems": 36,
+  "itineraryImages": 52,
+  "shoppingImages": 29,
+  "originalImages": 81,
+  "branchSelection": false,
+  "dateContinuationRows": [
+    24,
+    88,
+    106,
+    107,
+    108
+  ],
+  "sampleRowsExcluded": [
+    "行程!2",
+    "资料!2"
+  ],
+  "notes": "Empty cells preserved. Image-only continuation rows grouped with preceding named itinerary item. No older itinerary content used.",
+  "verifiedOriginals": 81,
+  "verifiedPreviews": 81,
+  "reusedOriginals": 50,
+  "mapsLinks": 46,
+  "previewBytes": 5912296,
+  "originalBytes": 74684265
 }
